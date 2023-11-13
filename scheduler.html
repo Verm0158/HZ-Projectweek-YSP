@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Machine scheduler</title>
+    </head>
+
+    <body>
+        <script type="module" src="./assets/scheduler.js"></script>
+
+        <div id="randomDealOfTodayDiv">
+            <h1 id="machineSchedulerTitle" class="">Machine scheduler!</h1>
+        </div>
+
+        <div id="inputEnergyProductionDiv">
+            <label for="machineNameInput" id="machineNameInputErrorDisplay">Machine name:</label>
+            <br>
+            <input type="text" id="machineNameInput" name="machineNameInput">
+            <br>
+            <br>
+
+            <label for="machineEnergyUsageInput" id="machineEnergyUsageInputErrorDisplay">Machine's power usage in wH:</label>
+            <br>
+            <input type="text" id="machineEnergyUsageInput" name="machineEnergyUsageInput">
+            <br>
+            <br>
+
+            <label for="machineHoursUsageInput" id="machineHoursUsageInputErrorDisplay">Machine usage in a day (in hours):</label>
+            <br>
+            <input type="text" id="machineHoursUsageInput" name="machineHoursUsageInput">
+            <br>
+            <br>
+
+            <button id="addMachineButton">Add</button>
+            <select id="machineTemplateOptions" default="test">
+                <option value="test">Test machines</option>
+                <option value="engravers">Engravers</option>
+                <option value="allMachines">All machines</option>
+            </select>
+            <button id="setMachineTemplateButton">Set template</button>
+            <button id="clearMachineTable">Clear</button>
+            <br>
+            <br>
+            
+            <table id="machineTable">
+                <tr id="machineTableHeader">
+                    <th>Name</th>
+                    <th>Energy usage in wH</th>
+                    <th>Hours of usage per day</th>
+                    <th>Remove</th>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+
+        <select id="solarPanelOutputTemplateOptions" default="test">
+            <option value="test">Test</option>
+            <option value="2/11/2023">2 November 2023</option>
+            <option value="3/11/2023">3 November 2023</option>
+        </select>
+        <button id="solarPanelOutputTemplateButton">Set template</button>
+        <button id="anticipateSolarPanelOutput">Anticipate</button>
+        <button id="clearSolarPanelOutputs">Clear</button>
+        <p id="solarPanelOutputErrorDisplay"></p>
+        <div id="solarPanelOutputDiv">
+            <table id="solarPanelOutputTable">
+                <tr id="solarPanelOutputTableHeader">
+                    <th>Time</th>
+                    <th>Energy output in wH</th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>00:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>01:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>02:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>03:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>04:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>05:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>06:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>07:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>08:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>09:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>10:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>11:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>12:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>13:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>14:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>15:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>16:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>17:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>18:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>19:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>20:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>21:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>22:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+                <tr class="solarPanelOutputTableRow">
+                    <td>23:00:00</th>
+                    <td><input type="text" class="solarPanelOutputInput" name="solarPanelOutputInput" value="0"></th>
+                </tr>
+            </table>
+        </div>
+
+        <button id="makeIndividualSchedule">Schedule individually (will find best schedule but takes a lot of resources, might crash browser with many machines)</button>
+
+        <p id="scheduleByGroupErrorDisplay"></p>
+        <select id="groupSortMethod" default="index">
+            <option value="index">Index of machines table</option>
+            <option value="random">Random groups</option>
+            <option value="lowToHighEnergyUsage">Low to high energy usage</option>
+        </select>
+        <input id="groupSizeInput" type="text" value="Group size">
+        <button id="makeGroupedSchedule">Schedule by group</button>
+        <br>
+        <br>
+        <br>
+
+        <table id="scheduleTable">
+            <tr id="scheduleTableHeader">
+                <th>Starting hour</th>
+                <th>Machines</th>
+                <th>Solarpanels output</th>
+                <th>Energy usage by machines</th>
+                <th>Energy balance</th>
+            </tr>
+        </table>
+        <p>Total "distance" from 0:</p>
+        <p id="totalDistanceFrom0">Undefined</p>
+    </body>
+</html>
